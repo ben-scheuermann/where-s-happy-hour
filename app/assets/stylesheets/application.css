@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  /*background: url(http://oofindustries.net/images/bubbles-beer.jpg);*/
+  background: #9c9c9c;
+  margin: 20px;
+}

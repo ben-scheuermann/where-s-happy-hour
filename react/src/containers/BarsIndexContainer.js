@@ -1,17 +1,16 @@
 import React from 'react';
-import BarTile from '../components/BarTile';
-
+import BarsIndexContainerChild from './BarsIndexContainerChild';
 
 class BarsIndexContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       current_user: {},
-      bars: []
+      bars: [],
+      address: ''
     }
   }
-
-  componentDidMount(){
+  componentWillMount(){
     fetch(`/api/v1/bars/`, {
       credentials: 'same-origin'
     })
@@ -26,39 +25,22 @@ class BarsIndexContainer extends React.Component {
     })
     .then(response => response.json())
     .then(responseBody => {
+      // console.log(responseBody.bars)
+      debugger
       this.setState({
         // current_user: responseBody.current_user,
         bars: responseBody.bars
       })
     })
-
   }
 
+
   render() {
-    let bars = this.state.bars.map((bar) => {
-      return(
-        <BarTile
-          key={bar.id}
-          id={bar.id}
-          name={bar.name}
-          hours={bar.hours}
-          happyHours={bar.happy_hours}
-          address={bar.address}
-          city={bar.city}
-          state={bar.state}
-          zipcode={bar.zipcode}
-          website={bar.zipcode}
-          category={bar.category}
-        />
-      )
-    })
+
     return (
-      <div>
-        <h1>Bars</h1>
-        <div>
-          {bars}
-        </div>
-      </div>
+      <BarsIndexContainerChild
+        bars={this.state.bars}
+      />
     );
   }
 }

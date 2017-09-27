@@ -4,13 +4,26 @@
     <title>Where's Happy Hour?</title>
     <link rel='shortcut icon' href='https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Beer_mug.svg/1024px-Beer_mug.svg.png'>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="initial-scale=1.0">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
+    <!-- <nav>
       <ul>
         <%- if user_signed_in? -%>
           <li><%= link_to 'Sign Out', '#' %></li>
@@ -19,7 +32,8 @@
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
-    </nav>
+    </nav> -->
     <%= yield %>
+
   </body>
 </html>

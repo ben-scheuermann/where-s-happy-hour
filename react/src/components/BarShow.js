@@ -1,6 +1,7 @@
 import React from 'react';
 
 const BarShow = (props) => {
+
   let reviewScore = {
     atmosphere: 0,
     drinkPrices: 0,

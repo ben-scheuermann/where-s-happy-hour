@@ -6,6 +6,7 @@ class BarsIndexContainer extends React.Component {
     super(props);
     this.state = {
       current_user: {},
+
       bars: [],
       address: ''
     }
@@ -25,8 +26,8 @@ class BarsIndexContainer extends React.Component {
     })
     .then(response => response.json())
     .then(responseBody => {
+
       // console.log(responseBody.bars)
-      debugger
       this.setState({
         // current_user: responseBody.current_user,
         bars: responseBody.bars

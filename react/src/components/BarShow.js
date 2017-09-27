@@ -1,16 +1,38 @@
 import React from 'react';
 
 const BarShow = (props) => {
+
+  let reviewScore = {
+    atmosphere: 0,
+    drinkPrices: 0,
+  }
+
+  let tally = {
+    atmosphere: 0,
+    drinkPrices: 0
+  }
+
+  props.reviews.forEach((review) => {
+    reviewScore.atmosphere += review.atmosphere
+    tally.atmosphere += 1
+
+    reviewScore.drinkPrices += review.drink_price
+    tally.drinkPrices += 1
+  })
+
   return (
     <div className="BarShow">
-      <h1>React-Name:{props.name}</h1>
+      <h1>{props.name}</h1>
       <p>
-        Hours: {props.hours} <br />
-        Happy Hours: {props.happyHours} <br />
-        Category: {props.category} <br />
+        Happy Hour Info: {props.happyHourInfo} <br />
         Address: {props.address} <br />
-        {props.city}, {props.state}, {props.zipcode} <br />
-        website: {props.website}
+        Website: <a href={props.website}>{props.website}</a> <br />
+        Phone: {props.phoneNumber}
+      </p>
+      <h5>Bar Score</h5>
+      <p>
+        Average Atmosphere: {(reviewScore.atmosphere/tally.atmosphere).toFixed(1)} <br/>
+        Average Drink Prices: {(reviewScore.drinkPrices/tally.drinkPrices).toFixed(1)}
       </p>
     </div>
   )

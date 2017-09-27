@@ -10,18 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919145931) do
+ActiveRecord::Schema.define(version: 20170922155736) do
 
   create_table "bars", force: :cascade do |t|
     t.string "name", null: false
-    t.string "category", null: false
-    t.string "happy_hours", null: false
+    t.string "happy_hour_info", null: false
     t.string "address", null: false
-    t.string "state", null: false
-    t.string "city", null: false
-    t.integer "zipcode", null: false
-    t.string "hours", null: false
-    t.string "website"
+    t.string "phone_number", null: false
+    t.string "website", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "description", null: false
+    t.integer "drink_price", null: false
+    t.integer "atmosphere", null: false
+    t.integer "bar_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

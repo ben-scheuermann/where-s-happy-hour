@@ -1,9 +1,7 @@
 class Bar < ApplicationRecord
+  has_many :reviews
+
   validates :name, presence: true
-  validates :category, presence: true
-  validates :happy_hours, presence: true
+  validates :happy_hour_info, presence: true
   validates :address, presence: true
-  validates :state, presence: true
-  validates :city, presence: true
-  validates :zipcode, presence: true
 end

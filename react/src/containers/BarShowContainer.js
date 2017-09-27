@@ -1,15 +1,15 @@
 import React from 'react';
-import BarShow from '../components/BarShow'
+import BarShowContainerChild from './BarShowContainerChild';
 
 class BarShowContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bar: []
+      bar: [],
+      address: ''
     }
   }
-
-  componentDidMount(){
+  componentWillMount(){
     let barId = this.props.params.id
     fetch(`/api/v1/bars/${barId}`)
     .then(response => {
@@ -22,30 +22,18 @@ class BarShowContainer extends React.Component {
       }
     })
     .then(response => response.json())
-    .then(responseBody => {
-      this.setState({ bar: responseBody })
+    .then(responseData => {
+      this.setState({ bar: responseData, address: responseData.address.replace(' ','+') })
     })
-
   }
 
   render() {
 
     return (
-      <div className="BarShowContainer">
-        <BarShow
-          key={this.state.bar.id}
-          id={this.state.bar.id}
-          name={this.state.bar.name}
-          hours={this.state.bar.hours}
-          happyHours={this.state.bar.happy_hours}
-          address={this.state.bar.address}
-          city={this.state.bar.city}
-          state={this.state.bar.state}
-          zipcode={this.state.bar.zipcode}
-          website={this.state.bar.website}
-          category={this.state.bar.category}
-        />
-      </div>
+      <BarShowContainerChild
+        address={this.state.address}
+        bar={this.state.bar}
+      />
     );
   }
 }

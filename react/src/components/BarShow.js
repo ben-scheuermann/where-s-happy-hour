@@ -23,7 +23,7 @@ const BarShow = (props) => {
       <h1>{props.name}</h1>
       {props.address} <br />
       {props.town}, PA<br />
-      {props.website} <br />
+      <a href={props.website}>{props.website}</a> <br />
       {props.phoneNumber} <br />
       <div className='display-linebreak'>
         {props.happyHourInfo}

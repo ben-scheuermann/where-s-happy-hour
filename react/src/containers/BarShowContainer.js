@@ -73,7 +73,7 @@ class BarShowContainer extends React.Component {
   }
 
   addNewReview(submission){
-    let barId = this.props.bar.id
+    let barId = this.props.params.id
     let jsonStringData = JSON.stringify(submission)
     fetch(`/api/v1/bars/${barId}/reviews`, {
       method: 'POST',

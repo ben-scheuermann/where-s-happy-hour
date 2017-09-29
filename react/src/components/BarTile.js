@@ -7,9 +7,7 @@ const BarTile = (props) => {
     <div className="BarTile">
       <Link to={`/bars/${props.id}`}>
         <p>
-          Name: {props.name} <br />
-          Hours: {props.hours} <br />
-          Happy Hours: {props.happyHours}
+          {props.name} <br />
         </p>
       </Link>
     </div>

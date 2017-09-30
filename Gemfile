@@ -27,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'httparty'
+gem 'sqlite3'
 gem 'pg'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

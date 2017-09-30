@@ -4,17 +4,23 @@
   <%= devise_error_messages! %>
   <div class='field'>
     <%= f.label :first_name, 'First Name' %> <br>
-    <%= f.text_field :first_name %>
+    <div class='black-text'>
+      <%= f.text_field :first_name %>
+    </div>
   </div>
 
   <div class='field'>
     <%= f.label :last_name, 'Last Name' %> <br>
-    <%= f.text_field :last_name %>
+    <div class='black-text'>
+      <%= f.text_field :last_name %>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <div class='black-text'>
+      <%= f.email_field :email, autofocus: true %>
+    </div>
   </div>
 
   <div class="field">
@@ -22,12 +28,16 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <div class='black-text'>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation, 'Password Confirmation' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <div class='black-text'>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
 
   <div class="actions">

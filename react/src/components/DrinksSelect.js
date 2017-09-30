@@ -8,7 +8,7 @@ const DrinksSelect = (props) => {
   })
   return (
     <label>{props.label} <br/>
-      <select name={props.name} value={props.selectedOption} onChange={props.handlerFunction}>
+      <select className='black-text' name={props.name} value={props.selectedOption} onChange={props.handlerFunction}>
         <option value=''></option>
         {options}
       </select>

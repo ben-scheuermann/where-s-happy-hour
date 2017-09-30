@@ -11,20 +11,14 @@ doc = Nokogiri::HTML(open('http://philly.thedrinknation.com/specials'))
 
 tally = 5
 85.times do
-  if Bar.find_by_name(doc.xpath('//h2//a')[tally].children.text.delete("\n").strip).nil?
-    Bar.create(
-      name: doc.xpath('//h2//a')[tally].children.text.delete("\n").strip,
-      address: doc.css('div[class=barMeta]')[tally].children[2].text.to_s.delete("\n").gsub(/\([^)]+\)\s+/,'').strip,
-      town: doc.css('div[class=barMeta]')[tally].children[1].text.to_s.delete("\n").gsub(/\([^)]+\)\s+/,'').strip.split('             ').last,
-      phone_number: doc.css('div[class=barMeta]')[tally].children[5].text.delete("<br/>").strip,
-      website: doc.css('div[class=barMeta]')[tally].children[7].text.delete("\n").strip,
-      happy_hour_info: doc.css('div[class=barMeta]')[tally].children[9].text.gsub("\n ", '<br />').strip.gsub(/\s+/, ' ').gsub('(<br /> ', '(').gsub('-<br />', '-').gsub(' ):<br />', '):').gsub('<br />', "\n")
-    )
-  else
-    Bar.find_by_name(doc.xpath('//h2//a')[tally].children.text.delete("\n").strip).update(
-      happy_hour_info: doc.css('div[class=barMeta]')[tally].children[9].text.gsub("\n ", '<br />').strip.gsub(/\s+/, ' ').gsub('(<br /> ', '(').gsub('-<br />', '-').gsub(' ):<br />', '):').gsub('<br />', "\n")
-    )
-  end
+  Bar.create(
+    name: doc.xpath('//h2//a')[tally].children.text.delete("\n").strip,
+    address: doc.css('div[class=barMeta]')[tally].children[2].text.to_s.delete("\n").gsub(/\([^)]+\)\s+/,'').strip,
+    town: doc.css('div[class=barMeta]')[tally].children[1].text.to_s.delete("\n").gsub(/\([^)]+\)\s+/,'').strip.split('             ').last,
+    phone_number: doc.css('div[class=barMeta]')[tally].children[5].text.delete("<br/>").strip,
+    website: doc.css('div[class=barMeta]')[tally].children[7].text.delete("\n").strip,
+    happy_hour_info: doc.css('div[class=barMeta]')[tally].children[9].text.gsub("\n ", '<br />').strip.gsub(/\s+/, ' ').gsub('(<br /> ', '(').gsub('-<br />', '-').gsub(' ):<br />', '):').gsub('<br />', "\n")
+  )
   tally = tally + 3
 end
 

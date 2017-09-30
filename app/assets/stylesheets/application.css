@@ -19,7 +19,7 @@
  }
 
 .bars {
-   height: 450px;
+   height: 430px;
    overflow: scroll;
  }
 
@@ -35,10 +35,14 @@
     content:"";
     position:fixed;
     z-index:-500;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   body {
     z-index: 1;
     color: white;
+  }
+
+  .black-text {
+    color: black;
   }

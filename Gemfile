@@ -29,7 +29,6 @@ gem 'devise'
 gem 'httparty'
 gem 'pg'
 ruby '2.4.1'
-gem 'puma'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

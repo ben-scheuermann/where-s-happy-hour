@@ -18,11 +18,12 @@ const BarShow = (props) => {
     reviewScore.drinkPrices += review.drink_price
     tally.drinkPrices += 1
   })
+
   return (
     <div className="BarShow">
       <h1>{props.name}</h1>
       {props.address} <br />
-      {props.town}, PA<br />
+      {props.town}, PA <br />
       <a href={props.website}>{props.website}</a> <br />
       {props.phoneNumber} <br />
       <div className='display-linebreak'>

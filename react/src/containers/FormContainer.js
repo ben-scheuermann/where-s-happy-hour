@@ -57,7 +57,7 @@ class FormContainer extends React.Component {
     return (
       <form className='callout' onSubmit={this.handleFormSummit}>
         <FormTextField
-          label={`Description Of Bar`}
+          label='Description'
           name='Description'
           handlerFunction={this.handleDescriptionChange}
           content={this.state.description}

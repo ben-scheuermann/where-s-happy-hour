@@ -15,13 +15,15 @@ class BarShowContainer extends React.Component {
       bar: [],
       reviews: [],
       address: '',
-      coords: []
+      coords: [],
+      website: ''
     }
     this.addNewReview = this.addNewReview.bind(this)
   }
 
   componentDidMount(){
     let barId = this.props.params.id
+    let website
     fetch(`/api/v1/bars/${barId}`)
     .then(response => {
       if (response.ok) {
@@ -34,7 +36,16 @@ class BarShowContainer extends React.Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ bar: responseData, address: responseData.address.replace(' ','+') })
+      if (responseData.website.includes("http")) {
+        website = responseData.website
+      } else {
+        website = "http://" + responseData.website
+      }
+      this.setState({
+        bar: responseData,
+        address: responseData.address.replace(' ','+'),
+        website: website
+      })
     })
 
     fetch(`/api/v1/bars/${barId}/reviews`)
@@ -141,7 +152,7 @@ class BarShowContainer extends React.Component {
               name={this.state.bar.name}
               happyHourInfo={this.state.bar.happy_hour_info}
               address={this.state.bar.address}
-              website={this.state.bar.website}
+              website={this.state.website}
               coords={this.state.coords}
               reviews={this.state.reviews}
               phoneNumber={this.state.bar.phone_number}

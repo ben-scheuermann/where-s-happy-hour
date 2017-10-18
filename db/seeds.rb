@@ -9,7 +9,7 @@
 require 'open-uri'
 doc = Nokogiri::HTML(open('http://philly.thedrinknation.com/specials'))
 
-tally = 5
+tally = 6
 85.times do
   Bar.create(
     name: doc.xpath('//h2//a')[tally].children.text.delete("\n").strip,
